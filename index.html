@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPO → AI Product Manager | 7-Month Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1209;
+  --paper: #faf7f2;
+  --paper2: #f2ede4;
+  --paper3: #e8e0d0;
+  --gold: #c8922a;
+  --gold2: #e8b84b;
+  --rust: #c0441a;
+  --teal: #1a7a6e;
+  --ink2: #3d3020;
+  --muted: #8a7a60;
+  --border: rgba(26,18,9,0.1);
+  --shadow: 0 2px 20px rgba(26,18,9,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* PAPER TEXTURE */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 0;
+}
+
+.wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+/* ═══ HERO ═══ */
+.hero {
+  padding: 72px 24px 56px;
+  max-width: 900px; margin: 0 auto;
+  position: relative; z-index: 1;
+  border-bottom: 1px solid var(--border);
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after { content: '—'; opacity: 0.5; }
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.h1-from { color: var(--muted); font-weight: 700; font-style: italic; }
+.h1-arrow { color: var(--gold); font-style: normal; }
+.h1-to { color: var(--ink); }
+
+.hero-sub {
+  font-size: 17px; color: var(--ink2);
+  max-width: 560px; margin: 20px 0 32px;
+  line-height: 1.65;
+}
+.hero-deadline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--ink); color: var(--paper);
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  padding: 10px 18px; border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+.hero-deadline .dot { width: 8px; height: 8px; border-radius: 50%; background: #f97316; animation: blink 1.4s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* HONEST BOX */
+.honest-box {
+  background: var(--paper2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--rust);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin: 40px 0;
+}
+.honest-box h3 {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--rust); margin-bottom: 10px;
+}
+.honest-box p { font-size: 14px; color: var(--ink2); line-height: 1.65; }
+.honest-box strong { color: var(--ink); }
+
+/* BPO SUPERPOWER BOX */
+.superpower-box {
+  background: linear-gradient(135deg, #1a7a6e0d, #1a7a6e18);
+  border: 1px solid rgba(26,122,110,0.2);
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin: 28px 0;
+}
+.superpower-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--teal); margin-bottom: 12px;
+}
+.superpower-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.superpower-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: var(--ink2);
+}
+.sp-icon { color: var(--teal); font-size: 14px; margin-top: 2px; flex-shrink: 0; }
+
+/* ═══ MONTH TIMELINE ═══ */
+.timeline { padding: 48px 0; }
+.timeline-header {
+  text-align: center; margin-bottom: 48px;
+}
+.timeline-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 800;
+  margin-bottom: 8px;
+}
+.timeline-header p { color: var(--muted); font-size: 14px; }
+
+.months { display: flex; flex-direction: column; gap: 0; }
+
+.month {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0;
+  position: relative;
+}
+.month-spine {
+  display: flex; flex-direction: column; align-items: center;
+  padding-top: 4px;
+}
+.month-circle {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+  border: 2px solid; flex-shrink: 0; position: relative; z-index: 1;
+  background: var(--paper);
+}
+.month-line {
+  width: 2px; flex: 1; min-height: 20px;
+  margin-top: 4px;
+}
+.month:last-child .month-line { display: none; }
+
+.month-card {
+  padding: 0 0 36px 20px;
+}
+.month-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+.month-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700;
+  margin-bottom: 10px; line-height: 1.25;
+}
+.month-focus {
+  font-size: 13px; color: var(--ink2);
+  margin-bottom: 14px; line-height: 1.6;
+}
+.tasks {
+  display: flex; flex-direction: column; gap: 6px;
+  margin-bottom: 14px;
+}
+.task {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: var(--ink2);
+  padding: 8px 12px;
+  background: var(--paper2); border-radius: 6px;
+  border: 1px solid var(--border);
+}
+.task-check {
+  width: 16px; height: 16px; border-radius: 3px;
+  border: 1.5px solid; flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+}
+.resources-mini {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;
+}
+.res {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  padding: 4px 10px; border-radius: 4px;
+  border: 1px solid var(--border); color: var(--muted);
+  text-decoration: none;
+}
+.res.free { border-color: rgba(26,122,110,0.35); color: var(--teal); }
+.milestone-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 4px;
+  font-size: 12px; font-weight: 500; margin-top: 10px;
+}
+
+/* Month color themes */
+.m1 .month-circle { border-color: #c8922a; color: #c8922a; }
+.m1 .month-line { background: linear-gradient(#c8922a, #e8b84b); }
+.m1 .month-tag { color: #c8922a; }
+.m1 .task-check { border-color: #c8922a; }
+
+.m2 .month-circle { border-color: #c0441a; color: #c0441a; }
+.m2 .month-line { background: linear-gradient(#c0441a, #e05a30); }
+.m2 .month-tag { color: #c0441a; }
+.m2 .task-check { border-color: #c0441a; }
+
+.m3 .month-circle { border-color: #7c4d9e; color: #7c4d9e; }
+.m3 .month-line { background: linear-gradient(#7c4d9e, #9b6abf); }
+.m3 .month-tag { color: #7c4d9e; }
+.m3 .task-check { border-color: #7c4d9e; }
+
+.m4 .month-circle { border-color: #1a7a6e; color: #1a7a6e; }
+.m4 .month-line { background: linear-gradient(#1a7a6e, #2a9d8f); }
+.m4 .month-tag { color: #1a7a6e; }
+.m4 .task-check { border-color: #1a7a6e; }
+
+.m5 .month-circle { border-color: #1a5a8a; color: #1a5a8a; }
+.m5 .month-line { background: linear-gradient(#1a5a8a, #2a7abf); }
+.m5 .month-tag { color: #1a5a8a; }
+.m5 .task-check { border-color: #1a5a8a; }
+
+.m6 .month-circle { border-color: #8a4a20; color: #8a4a20; }
+.m6 .month-line { background: linear-gradient(#8a4a20, #c8922a); }
+.m6 .month-tag { color: #8a4a20; }
+.m6 .task-check { border-color: #8a4a20; }
+
+.m7 .month-circle { border-color: #2a6e3a; color: #2a6e3a; background: #2a6e3a; color: #fff; }
+.m7 .month-line { display: none; }
+.m7 .month-tag { color: #2a6e3a; }
+.m7 .task-check { border-color: #2a6e3a; }
+
+/* ═══ SKILLS NEEDED ═══ */
+.skills-section { padding: 48px 0; border-top: 1px solid var(--border); }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 800;
+  margin-bottom: 6px;
+}
+.section-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+
+.skills-two-col {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.skill-group {
+  background: var(--paper2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px 20px;
+}
+.skill-group h4 {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.skill-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px;
+}
+.skill-item:last-child { border-bottom: none; }
+.skill-bar-row { display: flex; gap: 4px; }
+.skill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+.skill-dot.filled { background: var(--gold); }
+
+/* ═══ JOB HUNT STRATEGY ═══ */
+.strategy-section { padding: 48px 0; border-top: 1px solid var(--border); }
+.strategy-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px;
+}
+.strategy-card {
+  background: var(--paper2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px 20px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.strategy-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+.strategy-num {
+  font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900;
+  color: var(--paper3); line-height: 1; margin-bottom: 8px;
+}
+.strategy-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.strategy-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ═══ SALARY REALITY ═══ */
+.salary-section { padding: 48px 0; border-top: 1px solid var(--border); }
+.salary-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px;
+}
+.salary-card {
+  border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px;
+  background: var(--paper2);
+}
+.salary-level {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 6px;
+}
+.salary-amount {
+  font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 800;
+  margin-bottom: 4px;
+}
+.salary-note { font-size: 11px; color: var(--muted); }
+
+/* ═══ FINAL CTA ═══ */
+.cta-section {
+  background: var(--ink); color: var(--paper);
+  padding: 56px 24px; text-align: center;
+  margin-top: 0;
+}
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 800; margin-bottom: 14px;
+}
+.cta-section p { color: rgba(250,247,242,0.65); font-size: 15px; margin-bottom: 28px; }
+.cta-chips {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 32px;
+}
+.cta-chip {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  padding: 8px 16px; border-radius: 4px;
+  border: 1px solid rgba(250,247,242,0.2);
+  color: rgba(250,247,242,0.7);
+}
+.cta-chip.highlight { border-color: var(--gold2); color: var(--gold2); }
+.cta-bottom {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: rgba(250,247,242,0.4); letter-spacing: 0.08em;
+}
+
+/* PROGRESS WEEK TRACKER */
+.week-tracker {
+  background: var(--paper2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 24px; margin: 32px 0;
+}
+.wt-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px; flex-wrap: wrap; gap: 8px;
+}
+.wt-title { font-size: 14px; font-weight: 600; }
+.wt-count { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold); }
+.weeks-grid { display: grid; grid-template-columns: repeat(14, 1fr); gap: 4px; }
+.week-box {
+  aspect-ratio: 1; border-radius: 3px;
+  background: var(--paper3); border: 1px solid var(--border);
+  cursor: pointer; transition: background 0.15s;
+}
+.week-box:hover { background: var(--gold2); }
+.week-box.done { background: var(--teal); border-color: var(--teal); }
+.wt-legend {
+  display: flex; align-items: center; gap: 16px; margin-top: 10px;
+  font-size: 11px; color: var(--muted);
+}
+.wt-legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+/* divider */
+.divider { height: 1px; background: var(--border); margin: 8px 0; }
+
+@media (max-width: 640px) {
+  .skills-two-col, .strategy-grid, .salary-cards { grid-template-columns: 1fr; }
+  .superpower-grid { grid-template-columns: 1fr; }
+  .weeks-grid { grid-template-columns: repeat(7, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Personal Career Roadmap</div>
+  <h1>
+    <span class="h1-from">BPO Support</span><br>
+    <span class="h1-arrow">→</span> <span class="h1-to">AI Product Manager</span>
+  </h1>
+  <p class="hero-sub">
+    A <strong>7-month, week-by-week battle plan</strong> built for someone coming from customer support with zero tech background. Deadline: October 2026.
+  </p>
+  <div class="hero-deadline">
+    <span class="dot"></span>
+    Target: October 2026 &nbsp;·&nbsp; 28 weeks from March 2026
+  </div>
+
+  <div class="honest-box" style="margin-top:36px">
+    <h3>⚠ Honest Reality Check First</h3>
+    <p>
+      The typical timeline to become an AI PM is <strong>1–3 years</strong>. You're targeting 7 months from a non-tech background — that's aggressive but <strong>not impossible</strong> if you aim for the right entry point. Realistic first role: <strong>Associate AI PM, AI Business Analyst, or AI Product Analyst</strong> at a mid-size company or startup — not a senior PM at a FAANG. Get in the door, prove yourself, and level up from inside. That's the real strategy.
+    </p>
+  </div>
+
+  <div class="superpower-box">
+    <h3>✦ Your BPO Background Is Actually a Hidden Weapon</h3>
+    <div class="superpower-grid">
+      <div class="superpower-item"><span class="sp-icon">◈</span><span><strong>Customer empathy</strong> — AI PMs who understand real user pain (not just data) are rare and valuable</span></div>
+      <div class="superpower-item"><span class="sp-icon">◈</span><span><strong>SLA / KPI mindset</strong> — you already think in metrics, targets, and performance</span></div>
+      <div class="superpower-item"><span class="sp-icon">◈</span><span><strong>Stakeholder communication</strong> — managing difficult customers = managing difficult stakeholders</span></div>
+      <div class="superpower-item"><span class="sp-icon">◈</span><span><strong>Process knowledge</strong> — AI in BPO/CX is a massive market. You know this domain deeply</span></div>
+    </div>
+  </div>
+
+  <!-- WEEK TRACKER -->
+  <div class="week-tracker">
+    <div class="wt-header">
+      <div class="wt-title">28-Week Progress Tracker</div>
+      <div class="wt-count" id="week-count">0 / 28 weeks</div>
+    </div>
+    <div class="weeks-grid" id="weeks-grid"></div>
+    <div class="wt-legend">
+      <span style="display:flex;align-items:center;gap:5px"><span class="wt-legend-dot" style="background:var(--paper3);border:1px solid var(--border)"></span>Upcoming</span>
+      <span style="display:flex;align-items:center;gap:5px"><span class="wt-legend-dot" style="background:var(--teal)"></span>Done</span>
+      <span style="font-size:10px;color:var(--muted)">Click a week to mark complete</span>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div class="wrap">
+    <div class="timeline-header">
+      <h2>The 7-Month Battle Plan</h2>
+      <p>March → October 2026 &nbsp;·&nbsp; Each month has a clear theme, tasks, and a milestone to hit</p>
+    </div>
+
+    <div class="months">
+
+      <!-- MONTH 1 -->
+      <div class="month m1">
+        <div class="month-spine">
+          <div class="month-circle">M1</div>
+          <div class="month-line"></div>
+        </div>
+        <div class="month-card">
+          <div class="month-tag">March 2026 · Foundation</div>
+          <div class="month-title">Learn the Language of AI Products</div>
+          <div class="month-focus">You cannot manage what you don't understand. This month is about building enough AI literacy to speak confidently in interviews and with engineers — without needing to code.</div>
+          <div class="tasks">
+            <div class="task"><div class="task-check">○</div><div>Complete "AI for Everyone" by Andrew Ng (Coursera — free audit). 6 hours total. Do it in 2 weeks.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Read "Inspired" by Marty Cagan — the PM bible. Chapters 1–15 first, rest next month.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Study 10 real AI product teardowns: ChatGPT, Google Bard, Notion AI, Grammarly, Zomato AI, Swiggy feed ranking, Freshdesk AI, Intercom Fin, Zendesk AI, Leena.ai</div></div>
+            <div class="task"><div class="task-check">○</div><div>Start a "Product Thinking Journal" — every day, pick one app you use and write 5 lines on how AI makes it better or worse</div></div>
+            <div class="task"><div class="task-check">○</div><div>Create LinkedIn profile: headline = "Customer Experience Professional | Transitioning to AI Product Management" — start following 50 AI PMs</div></div>
+          </div>
+          <div class="resources-mini">
+            <span class="res free">✦ AI for Everyone — Coursera (free audit)</span>
+            <span class="res free">✦ Lenny's Newsletter (free tier)</span>
+            <span class="res free">✦ Product School YouTube</span>
+          </div>
+          <div class="milestone-badge" style="background:rgba(200,146,42,0.12);color:#c8922a;border:1px solid rgba(200,146,42,0.3)">
+            🏁 Milestone: Can explain what RAG, LLM, and AI agents mean in plain English to a non-tech person
+          </div>
+        </div>
+      </div>
+
+      <!-- MONTH 2 -->
+      <div class="month m2">
+        <div class="month-spine">
+          <div class="month-circle">M2</div>
+          <div class="month-line"></div>
+        </div>
+        <div class="month-card">
+          <div class="month-tag">April 2026 · PM Fundamentals</div>
+          <div class="month-title">Master the Core PM Toolkit</div>
+          <div class="month-focus">Learn how product managers actually think and work — frameworks, prioritization, roadmaps, metrics, and how to write a PRD. This is table-stakes for any PM interview.</div>
+          <div class="tasks">
+            <div class="task"><div class="task-check">○</div><div>Learn core PM frameworks: CIRCLES method, RICE scoring, Jobs-to-be-Done, North Star metric, OKRs. Don't just read — apply each to a BPO product scenario</div></div>
+            <div class="task"><div class="task-check">○</div><div>Write 2 mock PRDs (Product Requirement Docs) — one for "Add AI chat to a BPO ticketing system" and one you design yourself. Post both on LinkedIn.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Take Anthropic Academy: "AI Fluency (4D Framework)" — free, certificate included. Directly relevant to PM interviews.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Learn basic SQL: SELECT, WHERE, JOIN, GROUP BY. Use Mode Analytics or SQLZoo (free). You'll need this for data analysis in PM role.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Attend 2 online product management events/webinars. Comment on 5 posts by AI PMs daily.</div></div>
+          </div>
+          <div class="resources-mini">
+            <span class="res free">✦ SQLZoo (free)</span>
+            <span class="res free">✦ Anthropic Academy — AI Fluency (free)</span>
+            <span class="res free">✦ Reforge Blog (free articles)</span>
+          </div>
+          <div class="milestone-badge" style="background:rgba(192,68,26,0.1);color:#c0441a;border:1px solid rgba(192,68,26,0.25)">
+            🏁 Milestone: 2 PRDs written and posted. Can explain RICE prioritization in an interview answer.
+          </div>
+        </div>
+      </div>
+
+      <!-- MONTH 3 -->
+      <div class="month m3">
+        <div class="month-spine">
+          <div class="month-circle">M3</div>
+          <div class="month-line"></div>
+        </div>
+        <div class="month-card">
+          <div class="month-tag">May 2026 · AI Depth + Anthropic Certs</div>
+          <div class="month-title">Go Deep on LLMs & AI Products</div>
+          <div class="month-focus">This is where your BPO background pays off. Focus on AI applied to customer experience — chatbots, AI agents, contact center automation. You have domain expertise here that most PM candidates don't.</div>
+          <div class="tasks">
+            <div class="task"><div class="task-check">○</div><div>Complete Anthropic Academy: "Building with the Claude API" (8hr, free cert) — even though you won't code, understanding what engineers are building is essential</div></div>
+            <div class="task"><div class="task-check">○</div><div>Complete Anthropic Academy: "Introduction to MCP" — MCP is appearing in AI PM job descriptions now. Get the cert.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Deep dive into AI in CX/BPO: Study Intercom Fin, Zendesk AI, Freshdesk Freddy, NICE CXone, Genesys AI. For each: what problem does it solve, how does it work, what's its metric of success?</div></div>
+            <div class="task"><div class="task-check">○</div><div>Learn about prompt engineering basics (not coding — the strategy of designing AI interactions). Complete DeepLearning.AI "ChatGPT Prompt Engineering for Developers" (free, 1hr)</div></div>
+            <div class="task"><div class="task-check">○</div><div>Write a 1,000-word case study: "How I would redesign [your BPO company's] support system using AI" — this becomes a portfolio piece</div></div>
+          </div>
+          <div class="resources-mini">
+            <span class="res free">✦ Anthropic Academy (anthropic.skilljar.com)</span>
+            <span class="res free">✦ DeepLearning.AI short courses (free)</span>
+            <span class="res free">✦ a16z AI essays (free)</span>
+          </div>
+          <div class="milestone-badge" style="background:rgba(124,77,158,0.1);color:#7c4d9e;border:1px solid rgba(124,77,158,0.25)">
+            🏁 Milestone: 2 Anthropic certificates + 1 published case study on LinkedIn. 500+ profile views.
+          </div>
+        </div>
+      </div>
+
+      <!-- MONTH 4 -->
+      <div class="month m4">
+        <div class="month-spine">
+          <div class="month-circle">M4</div>
+          <div class="month-line"></div>
+        </div>
+        <div class="month-card">
+          <div class="month-tag">June 2026 · Portfolio Building</div>
+          <div class="month-title">Build Proof of Work</div>
+          <div class="month-focus">No-code tools mean you can build AI product prototypes without writing code. Build things you can show in interviews. Hiring managers want to see that you've shipped, not just studied.</div>
+          <div class="tasks">
+            <div class="task"><div class="task-check">○</div><div>Build a no-code AI prototype using Voiceflow or Botpress — a customer support AI agent for a fictional company. Record a 3-min walkthrough video, post it on LinkedIn.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Create a full product roadmap in Notion or Linear for "AI features for a mid-size BPO company" — include discovery, prioritization, metrics, and success criteria</div></div>
+            <div class="task"><div class="task-check">○</div><div>Write 3 blog posts on Medium or LinkedIn: (1) "What BPO taught me about AI products" (2) "How Intercom Fin changed customer support" (3) "5 metrics I'd use to measure AI chatbot success"</div></div>
+            <div class="task"><div class="task-check">○</div><div>Apply for 5 informational interviews — reach out to 10 AI PMs on LinkedIn asking for a 20-minute call. Not job applications. Learning conversations.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Complete a product analytics course: Amplitude's free academy or Mixpanel's free course. Understand retention, funnels, DAU/MAU.</div></div>
+          </div>
+          <div class="resources-mini">
+            <span class="res free">✦ Voiceflow (free tier)</span>
+            <span class="res free">✦ Notion (free)</span>
+            <span class="res free">✦ Amplitude Academy (free)</span>
+          </div>
+          <div class="milestone-badge" style="background:rgba(26,122,110,0.1);color:#1a7a6e;border:1px solid rgba(26,122,110,0.25)">
+            🏁 Milestone: 1 working AI prototype + 1 product roadmap doc + 3 published articles. Portfolio ready.
+          </div>
+        </div>
+      </div>
+
+      <!-- MONTH 5 -->
+      <div class="month m5">
+        <div class="month-spine">
+          <div class="month-circle">M5</div>
+          <div class="month-line"></div>
+        </div>
+        <div class="month-card">
+          <div class="month-tag">July 2026 · Interview Prep</div>
+          <div class="month-title">Train for the AI PM Interview</div>
+          <div class="month-focus">AI PM interviews test 4 things: product sense, analytical thinking, AI knowledge, and communication. Each requires specific practice. Start applying now — rejections are data.</div>
+          <div class="tasks">
+            <div class="task"><div class="task-check">○</div><div>Practice 20 product case questions aloud: "Design an AI feature for Zomato", "How would you measure success of a chatbot", "What AI would you add to an HR system?" Record yourself.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Prepare STAR-format answers for: "Why PM?", "Tell me about a time you handled a difficult customer", "How do you prioritize features?", "What AI product excites you most?"</div></div>
+            <div class="task"><div class="task-check">○</div><div>Start sending 10 job applications per week — target: Associate PM, AI Business Analyst, Product Analyst, CX Technology PM at AI startups, BPO tech companies, SaaS CX platforms</div></div>
+            <div class="task"><div class="task-check">○</div><div>Cold email 3 hiring managers per week with a specific, short message + link to your best portfolio piece</div></div>
+            <div class="task"><div class="task-check">○</div><div>Join Product Management communities: PM School India, Product folks India Discord, Reforge community (free tier)</div></div>
+          </div>
+          <div class="resources-mini">
+            <span class="res free">✦ Exponent PM Interview prep (free videos)</span>
+            <span class="res free">✦ PM School India</span>
+            <span class="res free">✦ Naukri / LinkedIn Jobs</span>
+          </div>
+          <div class="milestone-badge" style="background:rgba(26,90,138,0.1);color:#1a5a8a;border:1px solid rgba(26,90,138,0.25)">
+            🏁 Milestone: 40+ applications sent, 5+ recruiter screens, 2+ first-round interviews booked.
+          </div>
+        </div>
+      </div>
+
+      <!-- MONTH 6 -->
+      <div class="month m6">
+        <div class="month-spine">
+          <div class="month-circle">M6</div>
+          <div class="month-line"></div>
+        </div>
+        <div class="month-card">
+          <div class="month-tag">August–September 2026 · Execution</div>
+          <div class="month-title">Full Interview Sprint + Negotiate</div>
+          <div class="month-focus">By now you should be in active interview loops. Don't slow down learning — but your main job is now getting offers. Treat every interview as a reps session.</div>
+          <div class="tasks">
+            <div class="task"><div class="task-check">○</div><div>Send 15+ applications per week. Broaden your search: Product Analyst, AI Business Analyst, AI Implementation Specialist — these are stepping stones, not compromises</div></div>
+            <div class="task"><div class="task-check">○</div><div>Get 2 mock interviews from peers or mentors. Use interviewing.io or Pramp for free mock rounds.</div></div>
+            <div class="task"><div class="task-check">○</div><div>Complete Anthropic Academy: "Claude on AWS Bedrock" cert — shows cloud + AI stack knowledge in interviews</div></div>
+            <div class="task"><div class="task-check">○</div><div>Update portfolio with any new projects, refine your LinkedIn "About" section to tell a crisp narrative: BPO → AI expertise → PM skills</div></div>
+            <div class="task"><div class="task-check">○</div><div>Research salary ranges, know your walk-away number, and prepare your negotiation script before any offer comes</div></div>
+          </div>
+          <div class="resources-mini">
+            <span class="res free">✦ Pramp (free mock interviews)</span>
+            <span class="res free">✦ Anthropic Academy — AWS Bedrock cert</span>
+            <span class="res free">✦ Glassdoor salary data</span>
+          </div>
+          <div class="milestone-badge" style="background:rgba(138,74,32,0.1);color:#8a4a20;border:1px solid rgba(138,74,32,0.25)">
+            🏁 Milestone: 100+ total applications, 10+ interviews, 2+ final rounds, 1 offer in hand.
+          </div>
+        </div>
+      </div>
+
+      <!-- MONTH 7 -->
+      <div class="month m7">
+        <div class="month-spine">
+          <div class="month-circle">✓</div>
+        </div>
+        <div class="month-card">
+          <div class="month-tag">October 2026 · Target Date</div>
+          <div class="month-title">Sign the Offer. Start the Job.</div>
+          <div class="month-focus">If you've followed this plan, you should have at minimum an offer as an Associate PM, AI Analyst, or AI Product Specialist. From inside the company, senior AI PM is 12–18 months away.</div>
+          <div class="milestone-badge" style="background:rgba(42,110,58,0.12);color:#2a6e3a;border:1px solid rgba(42,110,58,0.3);font-size:14px;padding:12px 18px">
+            🎯 Goal: First AI-adjacent PM role signed. ₹10–20 LPA entry. ₹25–40 LPA in 2 years.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS NEEDED -->
+<section class="skills-section">
+  <div class="wrap">
+    <div class="section-title">Skills You Need vs. What You Already Have</div>
+    <div class="section-sub">Honest assessment — BPO background already gives you more than you think</div>
+    <div class="skills-two-col">
+      <div class="skill-group">
+        <h4 style="color:var(--teal)">✦ You Already Have These</h4>
+        <div class="skill-item">
+          Customer empathy & user research
+          <div class="skill-bar-row">
+            <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          Stakeholder communication
+          <div class="skill-bar-row">
+            <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          Process & workflow analysis
+          <div class="skill-bar-row">
+            <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          KPI / performance mindset
+          <div class="skill-bar-row">
+            <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div><div class="skill-dot"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          CX domain knowledge
+          <div class="skill-bar-row">
+            <div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4 style="color:var(--rust)">↗ Need to Build These</h4>
+        <div class="skill-item">
+          AI / ML fundamentals
+          <div class="skill-bar-row">
+            <div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          Product roadmapping & PRDs
+          <div class="skill-bar-row">
+            <div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          Basic SQL & analytics
+          <div class="skill-bar-row">
+            <div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          Prompt engineering strategy
+          <div class="skill-bar-row">
+            <div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          PM interview frameworks
+          <div class="skill-bar-row">
+            <div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div><div class="skill-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOB HUNT STRATEGY -->
+<section class="strategy-section">
+  <div class="wrap">
+    <div class="section-title">Where & How to Find the Job</div>
+    <div class="section-sub">Your 5-channel job hunting strategy — don't rely on just one</div>
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-num">01</div>
+        <div class="strategy-title">Target BPO-Tech Companies First</div>
+        <div class="strategy-desc">Companies like iEnergizer, EXL, WNS, Mphasis, Teleperformance India are actively building AI into their CX products. Your BPO experience + AI knowledge = immediate credibility. These are your easiest entry doors.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">02</div>
+        <div class="strategy-title">CX SaaS Startups (Best Bet)</div>
+        <div class="strategy-desc">Freshworks, Kapture CRM, Leena.ai, Yellow.ai, Observe.ai, Convin.ai — all hiring PMs who understand support operations AND AI. Search "CX AI product" on LinkedIn Jobs daily. Set alerts.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">03</div>
+        <div class="strategy-title">Internal Transfer Is Fastest</div>
+        <div class="strategy-desc">Does your current BPO company have a technology or product team? Transferring internally to an "AI Transformation" or "Digital PM" role is often 5× easier than applying externally. Talk to your manager. Plant the seed now.</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">04</div>
+        <div class="strategy-title">LinkedIn Cold Outreach</div>
+        <div class="strategy-desc">Identify 100 AI PMs at target companies. Send 5 connection requests/day with a specific message: "I'm transitioning from BPO to AI PM — I wrote this case study on AI in customer support. Would love 15 min of your perspective."</div>
+      </div>
+      <div class="strategy-card">
+        <div class="strategy-num">05</div>
+        <div class="strategy-num" style="font-size:20px;margin-top:-10px"></div>
+        <div class="strategy-title">Titles to Apply For (Not Just "AI PM")</div>
+        <div class="strategy-desc">Associate Product Manager · AI Business Analyst · Product Analyst · CX Technology PM · AI Implementation Specialist · Digital Transformation Analyst · Conversational AI Product Lead · Customer AI Specialist</div>
+      </div>
+      <div class="strategy-card" style="border-color:rgba(200,146,42,0.4)">
+        <div class="strategy-num" style="color:var(--gold)">06</div>
+        <div class="strategy-title">Your Anthropic Certs as Conversation Starters</div>
+        <div class="strategy-desc">Add all Anthropic certs to LinkedIn. They're specific, verifiable, and signal you've done the real work. Many recruiters are Googling "Anthropic certification" right now. Stand out.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SALARY SECTION -->
+<section class="salary-section">
+  <div class="wrap">
+    <div class="section-title">India Salary Reality</div>
+    <div class="section-sub">What to expect at each stage of the journey</div>
+    <div class="salary-cards">
+      <div class="salary-card">
+        <div class="salary-level">Month 7 Entry Role</div>
+        <div class="salary-amount" style="color:var(--gold)">₹10–20 LPA</div>
+        <div class="salary-note">Associate PM, AI Analyst, CX Technology PM at startup or mid-size company</div>
+      </div>
+      <div class="salary-card">
+        <div class="salary-level">Year 2 (Promotion)</div>
+        <div class="salary-amount" style="color:var(--teal)">₹20–35 LPA</div>
+        <div class="salary-note">PM or Senior Product Analyst once you've shipped 2–3 AI features</div>
+      </div>
+      <div class="salary-card">
+        <div class="salary-level">Year 3–4 (Senior AI PM)</div>
+        <div class="salary-amount" style="color:var(--rust)">₹35–60 LPA</div>
+        <div class="salary-note">Senior AI PM at Freshworks, Flipkart, PhonePe, or a well-funded AI startup</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Start Today. Not Tomorrow.</h2>
+  <p>Every week you wait is a week someone else gets that offer. The plan is in front of you.</p>
+  <div class="cta-chips">
+    <span class="cta-chip highlight">Week 1 → AI for Everyone on Coursera</span>
+    <span class="cta-chip">Week 2 → Read Inspired by Marty Cagan</span>
+    <span class="cta-chip">Week 3 → Write your first PRD</span>
+    <span class="cta-chip">Week 4 → Anthropic Academy: AI Fluency</span>
+  </div>
+  <div class="cta-bottom">anthropic.skilljar.com &nbsp;·&nbsp; Free certs, no excuses &nbsp;·&nbsp; October 2026</div>
+</section>
+
+<script>
+// Week tracker with localStorage
+const grid = document.getElementById('weeks-grid');
+const countEl = document.getElementById('week-count');
+const storageKey = 'bpo-aipm-weeks';
+let done = JSON.parse(localStorage.getItem(storageKey) || '[]');
+
+for (let i = 1; i <= 28; i++) {
+  const box = document.createElement('div');
+  box.className = 'week-box' + (done.includes(i) ? ' done' : '');
+  box.title = 'Week ' + i;
+  box.onclick = () => {
+    if (done.includes(i)) { done = done.filter(x => x !== i); box.classList.remove('done'); }
+    else { done.push(i); box.classList.add('done'); }
+    localStorage.setItem(storageKey, JSON.stringify(done));
+    countEl.textContent = done.length + ' / 28 weeks';
+  };
+  grid.appendChild(box);
+}
+countEl.textContent = done.length + ' / 28 weeks';
+</script>
+</body>
+</html>
